@@ -5,27 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LuyenViet — Luyện Viết Tiếng Nhật</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
-      <a class="logo" href="#">
+      <a class="logo" href="#" onclick="goHome(); return false;">
         <span class="logo-mark">練</span>
         <span class="logo-text">LuyenViet</span>
       </a>
       <div class="nav-links">
-        <a href="#" class="nav-link active">Trang chủ</a>
+        <a href="#" class="nav-link active" onclick="goHome(); return false;">Trang chủ</a>
         <a href="#practice-section" class="nav-link">Luyện viết</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero-section">
     <div class="hero-bg-shapes">
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
@@ -34,7 +32,7 @@
     <div class="hero-content">
       <div class="hero-badge">日本語練習</div>
       <h1 class="hero-title">Luyện viết tiếng Nhật<br><span class="gradient-text">thông minh & hiệu quả</span></h1>
-      <p class="hero-sub">Chọn cấp độ JLPT, khám phá chủ đề, nhận từ vựng + ngữ pháp gợi ý<br>và viết câu ngay — có AI chấm bài tức thì.</p>
+      <p class="hero-sub">Chọn cấp độ JLPT, khám phá chủ đề, nhận từ vựng + ngữ pháp gợi ý và viết câu ngay — có AI chấm bài tức thì.</p>
       <div class="hero-cta">
         <a href="#practice-section" class="btn-primary">Bắt đầu luyện tập →</a>
         <div class="hero-stats">
@@ -48,10 +46,9 @@
     </div>
   </section>
 
-  <!-- MAIN APP -->
   <main id="practice-section" class="app-container">
 
-    <!-- STEP 1: CHỌN CẤP ĐỘ -->
+    <!-- STEP 1: CẤP ĐỘ -->
     <section class="step" id="step-level">
       <div class="step-header">
         <div class="step-num">01</div>
@@ -60,18 +57,16 @@
           <p class="step-desc">Mỗi cấp có từ vựng và ngữ pháp riêng phù hợp</p>
         </div>
       </div>
-      <div class="level-grid" id="level-grid">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="level-grid" id="level-grid"></div>
     </section>
 
-    <!-- STEP 2: CHỌN MODE -->
+    <!-- STEP 2: MODE -->
     <section class="step step-hidden" id="step-mode">
       <div class="step-header">
         <div class="step-num">02</div>
         <div>
           <h2 class="step-title">Chọn hình thức luyện tập</h2>
-          <p class="step-desc">Hai chế độ phù hợp với mục tiêu khác nhau</p>
+          <p class="step-desc">Ba chế độ phù hợp với mục tiêu khác nhau</p>
         </div>
       </div>
       <div class="mode-grid">
@@ -79,18 +74,24 @@
           <div class="mode-icon">📚</div>
           <h3 class="mode-title">Viết theo chủ đề</h3>
           <p class="mode-desc">Chọn từ danh sách chủ đề có sẵn. Nhận gợi ý từ vựng và ngữ pháp phù hợp để viết ngay.</p>
-          <div class="mode-tag">Phù hợp để học có hệ thống</div>
+          <div class="mode-tag">Học có hệ thống</div>
         </div>
         <div class="mode-card" id="mode-free" onclick="selectMode('free')">
           <div class="mode-icon">✏️</div>
           <h3 class="mode-title">Luyện viết tự do</h3>
           <p class="mode-desc">Nhập chủ đề bất kỳ bạn muốn viết. AI sẽ gợi ý từ vựng và ngữ pháp liên quan ngay lập tức.</p>
-          <div class="mode-tag">Phù hợp để ôn luyện sáng tạo</div>
+          <div class="mode-tag">Ôn luyện sáng tạo</div>
+        </div>
+        <div class="mode-card mode-card-featured" id="mode-drill" onclick="selectMode('drill')">
+          <div class="mode-icon">⚡</div>
+          <h3 class="mode-title">Luyện viết 2 chiều</h3>
+          <p class="mode-desc">100–200 câu mỗi cấp từ dễ đến khó. Dịch Việt↔Nhật, có nút Skip & Previous. Phải đúng mới qua câu tiếp!</p>
+          <div class="mode-tag mode-tag-featured">Luyện tập chuyên sâu ⭐</div>
         </div>
       </div>
     </section>
 
-    <!-- STEP 3A: VIẾT THEO CHỦ ĐỀ - CHỌN TOPIC -->
+    <!-- STEP 3A: TOPIC -->
     <section class="step step-hidden" id="step-topics">
       <div class="step-header">
         <div class="step-num">03</div>
@@ -99,12 +100,10 @@
           <p class="step-desc">Mỗi chủ đề kèm từ vựng và ngữ pháp phù hợp cấp độ bạn chọn</p>
         </div>
       </div>
-      <div class="topic-grid" id="topic-grid">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="topic-grid" id="topic-grid"></div>
     </section>
 
-    <!-- STEP 3B: VIẾT TỰ DO - NHẬP CHỦ ĐỀ -->
+    <!-- STEP 3B: FREE -->
     <section class="step step-hidden" id="step-free-input">
       <div class="step-header">
         <div class="step-num">03</div>
@@ -133,58 +132,81 @@
       </div>
     </section>
 
-    <!-- STEP 4: KHU VỰC LUYỆN VIẾT -->
+    <!-- STEP 3C: DRILL 2 CHIỀU -->
+    <section class="step step-hidden" id="step-drill">
+      <div class="drill-layout">
+        <div class="drill-header-bar">
+          <div class="drill-meta">
+            <span class="level-badge" id="drill-level-badge"></span>
+            <span class="drill-progress-text" id="drill-progress-text">Câu 1</span>
+            <span class="drill-streak" id="drill-streak"></span>
+          </div>
+          <div class="drill-progress-bar">
+            <div class="drill-progress-fill" id="drill-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="drill-card" id="drill-card">
+          <div class="drill-direction" id="drill-direction">🇻🇳 → 🇯🇵 Dịch sang tiếng Nhật</div>
+          <div class="drill-sentence" id="drill-sentence">Đang tải câu...</div>
+          <div class="drill-vocab-hint" id="drill-vocab-hint"></div>
+        </div>
+
+        <div class="writing-box drill-input-box">
+          <textarea id="drill-answer" class="writing-textarea" placeholder="Viết câu trả lời ở đây..." rows="3" style="min-height:90px;"></textarea>
+          <div class="writing-toolbar">
+            <span class="char-count" id="drill-char-count">0 ký tự</span>
+            <div class="toolbar-actions">
+              <button class="btn-clear" onclick="clearDrill()">Xóa</button>
+              <button class="btn-submit" id="drill-check-btn" onclick="submitDrill()">Kiểm tra ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="drill-feedback"></div>
+
+        <div class="drill-nav">
+          <button class="btn-outline" onclick="prevDrill()">← Câu trước</button>
+          <button class="btn-secondary" onclick="skipDrill()">Bỏ qua</button>
+          <button class="btn-primary" id="drill-next-btn" onclick="nextDrill()" style="display:none;">Câu tiếp theo →</button>
+          <button class="btn-outline" onclick="backToMode()" style="margin-left:auto; font-size:12px;">⬅ Đổi chế độ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4: WRITING -->
     <section class="step step-hidden" id="step-writing">
       <div class="writing-layout">
-
-        <!-- LEFT: TỪ VỰNG + NGỮ PHÁP -->
         <aside class="sidebar">
           <div class="sidebar-sticky">
-            <div class="sidebar-block" id="topic-info-block">
+            <div class="sidebar-block">
               <div class="sidebar-topic-label">Chủ đề đang luyện</div>
               <div class="sidebar-topic-name" id="sidebar-topic"></div>
               <div class="sidebar-level-badge" id="sidebar-level"></div>
             </div>
-
             <div class="sidebar-block">
               <div class="sidebar-block-header">
                 <h4>📖 Từ vựng</h4>
                 <span class="count-badge" id="vocab-count">0</span>
               </div>
-              <div class="vocab-list" id="vocab-list">
-                <!-- Rendered by JS -->
-              </div>
+              <div class="vocab-list" id="vocab-list"></div>
             </div>
-
             <div class="sidebar-block">
               <div class="sidebar-block-header">
                 <h4>🔧 Ngữ pháp</h4>
                 <span class="count-badge" id="grammar-count">0</span>
               </div>
-              <div class="grammar-list" id="grammar-list">
-                <!-- Rendered by JS -->
-              </div>
+              <div class="grammar-list" id="grammar-list"></div>
             </div>
-
             <button class="btn-change-topic" onclick="backToTopics()">← Đổi chủ đề</button>
           </div>
         </aside>
-
-        <!-- RIGHT: KHU VIẾT -->
         <div class="writing-main">
-          <div class="writing-header">
-            <div class="writing-prompt" id="writing-prompt">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
+          <div class="writing-prompt" id="writing-prompt"></div>
           <div class="writing-box">
-            <textarea
-              id="user-writing"
-              class="writing-textarea"
+            <textarea id="user-writing" class="writing-textarea"
               placeholder="Viết câu của bạn bằng tiếng Nhật ở đây...&#10;&#10;Bạn có thể click vào từ vựng hoặc ngữ pháp bên trái để tham khảo."
-              rows="8"
-            ></textarea>
+              rows="8"></textarea>
             <div class="writing-toolbar">
               <span class="char-count" id="char-count">0 ký tự</span>
               <div class="toolbar-actions">
@@ -193,11 +215,7 @@
               </div>
             </div>
           </div>
-
-          <!-- FEEDBACK AREA -->
           <div id="feedback-area"></div>
-
-          <!-- NEXT ACTIONS -->
           <div class="next-actions" id="next-actions" style="display:none;">
             <button class="btn-secondary" onclick="tryAgain()">✏ Viết lại</button>
             <button class="btn-primary" onclick="nextPrompt()">Câu tiếp theo →</button>
@@ -209,10 +227,9 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <span class="logo-text" style="font-size:15px;">練 LuyenViet</span>
+      <span class="logo-text" style="font-size:15px; cursor:pointer;" onclick="goHome()">練 LuyenViet</span>
       <span class="footer-copy">Luyện viết tiếng Nhật mỗi ngày 🌸</span>
     </div>
   </footer>
